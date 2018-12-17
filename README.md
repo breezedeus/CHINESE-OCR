@@ -1,5 +1,16 @@
 # 本文基于tensorflow、keras/pytorch实现对自然场景的文字检测及端到端的OCR中文文字识别
 
+# Special Notes
+* 原项目里会遗漏各种模型数据，可以在这个百度云盘里找到：[Chinese_ocr-ctpn+crnn](https://pan.baidu.com/s/19nx07mHVhye95YWPt-zjgA#list/path=%2F) 。
+
+* 可以使用 [demo.py](demo.py) 跑起来整个流程（需要改下里面的 `data_dir` 路径）。
+* 模型 `VGGnet_fast_rcnn_iter_50000.ckpt` 对应的模型文件应该放在 [ctpn/ctpn_checkpoints](ctpn/ctpn_checkpoints) 目录下面。
+* 模型文件 `modelAngle.h5` 应该放在 [angle](angle) 目录下面。
+
+
+
+============
+
 ## 参考github仓库
 [TOTAL](https://github.com/chineseocr/chinese-ocr/tree/chinese-ocr-python-3.6)-挂掉了
 
@@ -42,7 +53,7 @@ sh setup-python3.sh
 # 文字区域检测CTPN
 支持CPU、GPU环境，一键部署，
 [文本检测训练参考](https://github.com/eragonruan/text-detection-ctpn)  
- 
+
 
 # OCR 端到端识别:CRNN
 ## ocr识别采用GRU+CTC端到到识别技术，实现不分隔识别不定长文字
