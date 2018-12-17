@@ -30,8 +30,7 @@ def parse_image(img_file):
 
 
 if __name__ == '__main__':
-    data_dir = '/Users/king/Documents/WhatIHaveDone/Test/text-detection-ctpn/data/demo'
-    # data_dir = '/Users/king/Documents/Ein/产品/大童/10个保险公司的识别结果/CID0000000334_华夏人寿'
+    data_dir = 'ctpn/data/demo'
     paths = glob(os.path.join(data_dir, '*.*'))
     for fp in paths:
         if os.path.basename(fp).split('.')[-1] not in {'jpg', 'jpeg', 'png'}:
