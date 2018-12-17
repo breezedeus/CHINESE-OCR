@@ -7,7 +7,7 @@ sys.path.append(parentdir)
 # from PIL import Image
 import keras.backend as K
 
-import keys_ocr
+from .keys_ocr import alphabet
 import numpy as np
 from keras.layers import Flatten, BatchNormalization, Permute, TimeDistributed, Dense, Bidirectional, GRU
 from keras.layers import Input, Conv2D, MaxPooling2D, ZeroPadding2D
@@ -70,8 +70,9 @@ def get_model(height, nclass):
     return model, basemodel
 
 
-characters = keys_ocr.alphabet[:]
-modelPath = os.path.join(os.getcwd(), "ocr/ocr0.2.h5")
+characters = alphabet[:]
+modelPath = os.path.join(os.getcwd(), "ocr/my_model_keras.h5")
+print(modelPath)
 # modelPath = '/Users/xiaofeng/Code/Github/dataset/CHINESE_OCR/save_model/my_model_keras.h5'
 height = 32
 nclass=len(characters)+1

@@ -111,12 +111,12 @@ def model(img, model='keras', adjust=False, detectAngle=False):
             im = im.transpose(Image.ROTATE_270)
         img = np.array(im)
     # 进行图像中的文字区域的识别
-    text_recs, tmp, img=text_detect(img)
+    text_recs, boxed_im, img = text_detect(img)
     # 识别区域排列
     text_recs = sort_box(text_recs)
     # 
     result = crnnRec(img, text_recs, model, adjust=adjust)
-    return result, tmp, angle
+    return result, boxed_im, angle
 
 
 def sort_box(box):

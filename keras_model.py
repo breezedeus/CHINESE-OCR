@@ -102,10 +102,10 @@ def model(img, adjust=False, detectAngle=False):
             im = im.transpose(Image.ROTATE_270)
         img = np.array(im)
 
-    text_recs, tmp, img = text_detect(img)
+    text_recs, boxed_im, img = text_detect(img)
     text_recs = sort_box(text_recs)
-    result = crnnRec(img, text_recs, model, adjust=adjust)
-    return result, tmp, angle
+    result = crnnRec(img, text_recs, adjust=adjust)
+    return result, boxed_im, angle
 
 
 def sort_box(box):

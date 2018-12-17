@@ -14,6 +14,6 @@ def text_detect(img):
     textdetector = TextDetector()
     boxes = textdetector.detect(boxes, scores[:, np.newaxis], img.shape[:2])
     # text_recs, tmp = draw_boxes(img, boxes, caption='im_name', wait=True, is_display=False)
-    text_recs, tmp = draw_boxes(
+    text_recs, boxed_im = draw_boxes(
         img, boxes, caption='im_name', wait=True, is_display=True)
-    return text_recs, tmp, img
+    return text_recs, boxed_im, img

@@ -21,6 +21,9 @@ load network
 'VGGnet_train'-train
 '''
 
+MODEL_FP = os.path.join(os.path.dirname(os.path.abspath(__file__)), '../ctpn_checkpoints')
+print('MODEL_FP:', MODEL_FP)
+
 
 def load_tf_model():
     cfg.TEST.HAS_RPN = True  # Use RPN for proposals
@@ -31,8 +34,7 @@ def load_tf_model():
     saver = tf.train.Saver()
     # sess = tf.Session(config=config)
     sess = tf.Session()
-    ckpt = tf.train.get_checkpoint_state(
-        '/Users/xiaofeng/Code/Github/dataset/CHINESE_OCR/ctpn/ctpn_checkpoints/')
+    ckpt = tf.train.get_checkpoint_state(MODEL_FP)
     reader = tf.train.NewCheckpointReader(ckpt.model_checkpoint_path)
     var_to_shape_map = reader.get_variable_to_shape_map()
     for key in var_to_shape_map:
